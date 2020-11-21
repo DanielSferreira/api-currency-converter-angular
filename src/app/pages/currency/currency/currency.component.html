@@ -1,0 +1,61 @@
+<nav class="navbar navbar-light ">
+  <a class="navbar-brand" href="#">
+    <h3>Conversor de Moedas</h3>
+  </a>
+</nav>
+
+<div class="container form">
+  <form>
+    <div class="row">
+      <div class="col-sm">
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="exampleInputEmail1">De:</label>
+              <select class="form-control" id="exampleFormControlSelect1">
+                <option>Dolar</option>
+                <option>Real</option>
+                <option>Euro</option>
+              </select>
+              <small id="emailHelp" class="form-text text-muted">Dolar.</small>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Para</label>
+              <select class="form-control" id="exampleFormControlSelect2">
+                <option>Dolar</option>
+                <option>Real</option>
+                <option>Euro</option>
+              </select>
+              <small id="emailHelp" class="form-text text-muted">Euro.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm valor">
+        <span>
+          1 #select1 vale 2 #select2
+        </span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Valor em #select1</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Valor em #select2</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+      </div>
+    </div>
+    <button (click)="go()" class="btn primary">Ver Referencia de Moedas!</button>
+  </form>
+</div>

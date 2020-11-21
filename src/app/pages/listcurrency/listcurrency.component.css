@@ -1,0 +1,12 @@
+.title {
+    font-size: larger;
+}
+.voltar {
+    margin: 25px 0;
+    background: rgb(200,117,212);
+    background: linear-gradient(153deg, rgba(200,117,212,1) 0%, rgba(255,187,41,1) 100%);
+    font-weight: 700;
+    color: white;
+    width: 100%;
+    border: none;
+}
