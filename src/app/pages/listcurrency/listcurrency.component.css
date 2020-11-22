@@ -9,10 +9,8 @@
     background: linear-gradient(153deg, rgba(200,117,212,1) 0%, rgba(255,187,41,1) 100%);
     font-weight: 700;
     color: white;
-    width: 100%;
     border: none;
 }
-.cardCurrency {
-    width: 18rem;
-    margin: 15px 30px;
+.container-sm {
+    text-align: center;
 }

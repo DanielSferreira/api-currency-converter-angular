@@ -13,9 +13,7 @@
             <div class="form-group">
               <label for="exampleInputEmail1">Real para:</label>
               <select class="form-control" id="exampleFormControlSelect1">
-                <option>Dolar</option>
-                <option>Euro</option>
-                <option>Libra</option>
+                <option *ngFor="let code of listCodes" [value]="code">{{code}}</option>
               </select>
             </div>
           </div>
