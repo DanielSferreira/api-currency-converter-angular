@@ -8,19 +8,27 @@ import { HttpClientModule } from '@angular/common/http';
 import { CurrencyComponent } from './pages/currency/currency/currency.component';
 import { MenuComponent } from './pages/currency/components/menu/menu.component';
 import { CardComponent } from './pages/currency/components/card/card.component';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { StoreModule } from '@ngrx/store';
+import { currencyReducer } from './states/currency.reducer';
+import { SelectCurrencyCodeComponent } from './pages/currency/components/select-currency-code/select-currency-code.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CurrencyComponent, 
-    MenuComponent,
     ListcurrencyComponent,
-    CardComponent
+    MenuComponent,
+    CardComponent,
+    SelectCurrencyCodeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot({stater: currencyReducer}),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   ],
   providers: [],
   bootstrap: [AppComponent]

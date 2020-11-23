@@ -1,0 +1,11 @@
+<div class="col-sm">
+    <div class="form-group">
+        <label for="exampleInputEmail1">Real para:</label>
+
+        {{code$ | async}}
+
+        <select class="form-control" #r id="exampleFormControlSelect1" (change)="changeCode(r.value)">
+            <option *ngFor="let code of listCodes" [value]="code">{{code}}</option>
+        </select>
+    </div>
+</div>

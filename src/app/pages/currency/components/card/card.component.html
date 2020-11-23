@@ -3,22 +3,32 @@
         <h5 class="card-title">{{data.name }}</h5>
         <h6 class="card-subtitle mb-2 text-muted">{{data.code}} - {{data.codein}}</h6>
         <div class="row">
-            <div class="col-sm">
+            <div class="col">
                 <ul class="list-group">
-                    <li class="list-group-item">low {{data.low}}</li>
-                    <li class="list-group-item">high</li>
-                    <li class="list-group-item">varBid</li>
-                    <li class="list-group-item">pctChange</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
-                  </ul>
-            </div>
-            <div class="col-sm">
-                <ul class="list-group">
-                    <li class="list-group-item">{{data.low}}</li>
-                    <li class="list-group-item">{{data.high}}</li>
-                    <li class="list-group-item">{{data.varBid}}</li>
-                    <li class="list-group-item">{{data.pctChange}}</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
+                    <li class="list-group-item">
+                        <span class="float-left">Variação </span>
+                        <span class="float-right">{{data.create_date | date: 'HH:mm'}}</span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="float-left">Baixa </span>
+                        <span class="float-right">{{data.low | currency: 'R$ '}}</span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="float-left">Alta </span>
+                        <span class="float-right">{{data.high | currency: 'R$ '}}</span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="float-left">Compra </span>
+                        <span class="float-right">{{data.bid | currency: 'R$ '}}</span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="float-left">Venda </span>
+                        <span class="float-right">{{data.ask | currency: 'R$ '}}</span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="float-left">Variação </span>
+                        <span class="float-right">{{data.varBid | currency: 'R$ '}}</span>
+                    </li>
                   </ul>
             </div>
         </div>

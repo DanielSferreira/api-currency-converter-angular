@@ -1,7 +1,10 @@
-import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { storage } from 'src/app/interfaces/storeStates';
 import { CurrencyApiService } from 'src/app/services/currency-api.service';
+import { decrement, increment, reset } from 'src/app/states/currency.actions';
 
 @Component({
   selector: 'app-currency',
@@ -10,18 +13,21 @@ import { CurrencyApiService } from 'src/app/services/currency-api.service';
 })
 export class CurrencyComponent implements OnInit {
 
-  constructor(
-    private route: Router,
-    private currency_api_svc: CurrencyApiService
-  ) { }
+  
 
   listCodes;
+  stater$: Observable<string>;
   ngOnInit(): void {
     this.currency_api_svc.listCurrencyCode().subscribe(a => this.listCodes = a);
-  }
-  go():void
-  {
-    this.route.navigate(['/listar']);
+    this.stater$ = this.store.select('stater')
   }
 
+  go = ()=>
+    this.route.navigate(['/listar']);
+
+  constructor(
+    private route: Router,
+    private currency_api_svc: CurrencyApiService,
+    private store: Store<storage>
+  ) {}
 }

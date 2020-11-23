@@ -2,4 +2,6 @@
 .cardCurrency {
     width: 18rem;
     margin: 15px 30px;
+    border-width: 3px;
+
 }
