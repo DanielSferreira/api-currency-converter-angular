@@ -1,5 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { CurrencyProperties } from '../interfaces/currency';
+import { CurrencyProperties } from '../../interfaces/currency';
 
 export const selectDetailsState = createFeatureSelector<any>('stater');
 

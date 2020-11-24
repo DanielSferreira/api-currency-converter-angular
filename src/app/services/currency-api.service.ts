@@ -8,8 +8,10 @@ import {CurrencyList,CurrencyProperties} from './../interfaces/currency'
   providedIn: 'root'
 })
 export class CurrencyApiService {
-
-  constructor(protected http: HttpClient) { }
+  constructor(protected http: HttpClient)
+  {
+    this.listCurrency().pipe(map(a=> console.log(a)))
+  }
 
   private GetCurrency():Observable<CurrencyList> 
   {
@@ -23,12 +25,18 @@ export class CurrencyApiService {
   
   public listCurrency():Observable<any[]> 
   {
-    return this.GetCurrency().pipe(map((a:CurrencyList)=>  Object.keys(a).map(key => a[key]) ));
+    return this.GetCurrency().pipe(map((a:CurrencyList)=>  {return Object.keys(a).map(key => a[key])} ));
   }
 
-  public alistCurrency():Observable<any[]> 
+  public Currencys():Observable<CurrencyList> 
   {
-    return this.GetCurrency().pipe(map((a:CurrencyList)=>  Object.keys(a).map(key => a[key]) ));
+    return this.GetCurrency().pipe(map((a:CurrencyList)=> {console.log(a); return a} ));
   }
 
+  public current(str:string) 
+  {
+    return this.GetCurrency().pipe(map((a)=>  a[str] ));
+  }
+
+ 
 }

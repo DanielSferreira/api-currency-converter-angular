@@ -12,13 +12,14 @@ export class ListcurrencyComponent implements OnInit {
 
   constructor(
     private currency_api_svc: CurrencyApiService,
-    private store: Store<{stater: number}>) { }
+    private store: Store<{ stater: number }>) { }
 
   public constant: CurrencyProperties[];
- number;
+  number;
+  
   ngOnInit(): void {
     this.number = this.store.select('stater')
-    this.currency_api_svc.listCurrency().subscribe(a=> this.constant = a); 
+    this.currency_api_svc.listCurrency().subscribe(a => this.constant = a);
   }
 
 }

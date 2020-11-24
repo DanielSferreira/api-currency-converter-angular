@@ -13,19 +13,16 @@ import * as fromCurrency from './../../../../states/currency.selectors';
 })
 export class SelectCurrencyCodeComponent implements OnInit {
 
-  //code$: Observable<string>;
   code$: Observable<string>;
   listCodes: string[];
 
   ngOnInit(): void {
     this.currency_api_svc.listCurrencyCode().subscribe(a => this.listCodes = a);
-    //this.code$ = this.store.select('stater')
     this.code$ = this.store.pipe(select(fromCurrency.getCode));
   }
 
   changeCode(e) {
-    console.log(this.code$);
-    
+    this.code$.subscribe(e=>console.log(e))
     this.store.dispatch(CodeMoney({ str: e }));
   }
 
