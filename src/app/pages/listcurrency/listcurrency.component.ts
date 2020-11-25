@@ -12,7 +12,7 @@ export class ListcurrencyComponent implements OnInit {
 
   constructor(
     private currency_api_svc: CurrencyApiService,
-    private store: Store<{ stater: number }>) { }
+    private store: Store<{ stater: string }>) { }
 
   public constant: CurrencyProperties[];
   number;

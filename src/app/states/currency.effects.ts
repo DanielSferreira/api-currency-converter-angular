@@ -12,21 +12,13 @@ export class CurrencyEffect {
 
     loadCurrencyList$ = createEffect(() => this.actions$.pipe(
         ofType(actions.ListLoadUpdate),
-        mergeMap(() => this.CurrencyApi.Currencys()
+        mergeMap(() => this.CurrencyApi.listCurrencyCode()
             .pipe(
-                map(cry => ({ type: '[Currency Load] load button', payload: cry }))
-                //catchError(() => of({ type: '[Movies API] Movies Loaded Error' }))
+                map(cry => ({ str: "Atum", type: '[Currency Load] Sim estou sendo executado' }))
             )
         )));
 
-        loadCurrencyByCode$ = createEffect(() => this.actions$.pipe(
-            ofType(actions.ListLoadUpdate),
-            mergeMap(() => this.CurrencyApi.Currencys()
-                .pipe(
-                    map(cry => ({ type: '[Currency Load] load button', payload: cry }))
-                    //catchError(() => of({ type: '[Movies API] Movies Loaded Error' }))
-                )
-            )))
+    
 
     constructor(
         private actions$: Actions,

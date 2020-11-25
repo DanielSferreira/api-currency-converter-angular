@@ -33,9 +33,9 @@ export class CurrencyApiService {
     return this.GetCurrency().pipe(map((a:CurrencyList)=> {console.log(a); return a} ));
   }
 
-  public current(str:string) 
+  public current(str:string)
   {
-    return this.GetCurrency().pipe(map((a)=>  a[str] ));
+    return this.GetCurrency().pipe(map((a)=>  Object.keys(a).map(key => a[key] === a[str] )));
   }
 
  

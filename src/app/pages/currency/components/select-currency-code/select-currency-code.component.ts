@@ -6,6 +6,11 @@ import { CurrencyApiService } from 'src/app/services/currency-api.service';
 import { CodeMoney } from 'src/app/states/currency.actions';
 import * as fromCurrency from './../../../../states/currency.selectors';
 
+interface StatesModel {
+  str:string;
+  states?:{}
+}
+
 @Component({
   selector: 'app-select-currency-code',
   templateUrl: './select-currency-code.component.html',
@@ -13,7 +18,7 @@ import * as fromCurrency from './../../../../states/currency.selectors';
 })
 export class SelectCurrencyCodeComponent implements OnInit {
 
-  code$: Observable<string>;
+  code$: Observable<StatesModel >;
   listCodes: string[];
 
   ngOnInit(): void {
@@ -23,7 +28,7 @@ export class SelectCurrencyCodeComponent implements OnInit {
 
   changeCode(e) {
     this.code$.subscribe(e=>console.log(e))
-    this.store.dispatch(CodeMoney({ str: e }));
+    this.store.dispatch(CodeMoney({ str: e.str }));
   }
 
   constructor(
