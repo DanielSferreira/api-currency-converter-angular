@@ -18,7 +18,7 @@ interface StatesModel {
 })
 export class SelectCurrencyCodeComponent implements OnInit {
 
-  code$: Observable<StatesModel >;
+  code$: Observable<StatesModel>;
   listCodes: string[];
 
   ngOnInit(): void {
@@ -26,9 +26,12 @@ export class SelectCurrencyCodeComponent implements OnInit {
     this.code$ = this.store.pipe(select(fromCurrency.getCode));
   }
 
+  codeView = "";
   changeCode(e) {
-    this.code$.subscribe(e=>console.log(e))
-    this.store.dispatch(CodeMoney({ str: e.str }));
+    console.log(e);
+    this.store.dispatch(CodeMoney({ str: e }));
+    this.code$.subscribe(e=>{console.log(e); this.codeView = e.str})
+    
   }
 
   constructor(

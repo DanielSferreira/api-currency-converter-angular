@@ -19,7 +19,7 @@ export class CurrencyComponent implements OnInit {
   ngOnInit(): void {
     this.currency_api_svc.Currencys().subscribe(a => this.listCodes = a);
     // this.stater$ = this.store.select('stater')
-    this.store.dispatch(fromActions.ListLoadUpdate({str:"USD"}));
+    // this.store.dispatch(fromActions.ListLoadUpdate({str:"USD"}));
   }
 
   constructor(
