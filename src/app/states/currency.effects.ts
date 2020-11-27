@@ -10,13 +10,14 @@ import * as actions from "./currency.actions";
 @Injectable()
 export class CurrencyEffect {
 
-    loadCurrencyList$ = createEffect(() => this.actions$.pipe(
-        ofType(actions.CodeMoney),
-        mergeMap(() => this.CurrencyApi.listCurrencyCode()
-            .pipe(
-                map(cry => ({ code: "Atum", type: '[Currency Load] Sim estou sendo executado' }))
-            )
-        )));
+    loadCurrencyList$ = createEffect(
+        () => this.actions$.pipe(
+            ofType(actions.CodeMoney),
+            mergeMap(   ({code:string}) => this.CurrencyApi.current({code:string})),
+            catchError(e=>actions.CodeMoneyFailed),
+            map((entity:any)=>actions.CodeMoneySuccess({entity}))
+        )
+    );
 
     
 
