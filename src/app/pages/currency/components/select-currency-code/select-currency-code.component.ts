@@ -7,7 +7,7 @@ import { CodeMoney } from 'src/app/states/currency.actions';
 import * as fromCurrency from './../../../../states/currency.selectors';
 
 interface StatesModel {
-  str:string;
+  code:string;
   states?:{}
 }
 
@@ -28,9 +28,8 @@ export class SelectCurrencyCodeComponent implements OnInit {
 
   codeView = "";
   changeCode(e) {
-    console.log(e);
-    this.store.dispatch(CodeMoney({ str: e }));
-    this.code$.subscribe(e=>{console.log(e); this.codeView = e.str})
+    this.store.dispatch(CodeMoney({ code: e }));
+    this.code$.subscribe(e=>{console.log(e); this.codeView = e.code})
     
   }
 

@@ -3,21 +3,20 @@ import { CurrencyProperties } from '../interfaces/currency';
 import * as actions from './currency.actions';
 
 interface StatesModel {
-    str:string;
+    code:string;
     states?:{}
   }
 const initialState:StatesModel = {
-    str: '',
+    code: '',
     states: {}
 
 }
 
 const _conterReducer = createReducer(
     initialState,
-    on(actions.CodeMoney, (state, { str }) => {
-        console.log(str);
-        return ({str:str})}),
-    on(actions.ListLoadUpdate, (state, { str }) => ({str}))
+    on(actions.CodeMoney, (state, { code }) => {
+        return ({code})}),
+    on(actions.ListLoadUpdate, (state, { code }) => ({code}))
 );
 
 export function currencyReducer(state, action) {

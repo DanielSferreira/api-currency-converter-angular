@@ -11,10 +11,10 @@ import * as actions from "./currency.actions";
 export class CurrencyEffect {
 
     loadCurrencyList$ = createEffect(() => this.actions$.pipe(
-        ofType(actions.ListLoadUpdate),
+        ofType(actions.CodeMoney),
         mergeMap(() => this.CurrencyApi.listCurrencyCode()
             .pipe(
-                map(cry => ({ str: "Atum", type: '[Currency Load] Sim estou sendo executado' }))
+                map(cry => ({ code: "Atum", type: '[Currency Load] Sim estou sendo executado' }))
             )
         )));
 

@@ -1,7 +1,7 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { CurrencyProperties } from '../interfaces/currency';
 interface StatesModel {
-  str:string;
+  code:string;
   states?:{}
 }
 export const selectDetailsState = createFeatureSelector<StatesModel | any>('stater');
@@ -10,7 +10,7 @@ export const getCode = createSelector(
   selectDetailsState,
   (detailsState: StatesModel) => {
     console.log(detailsState);
-    return({str:detailsState.str})
+    return({code:detailsState.code})
   },
 );
 
