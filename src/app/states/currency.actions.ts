@@ -10,9 +10,4 @@ export const CodeMoneySuccess = createAction(
 );
 export const CodeMoneyFailed = createAction(
     '[Currency Button Click] CodeMoney Falied',
-    //props<{code:string}>()
-);
-export const ListLoadUpdate = createAction(
-    '[Currency Load] load button',
-    props<{code:string}>()
 );

@@ -1,10 +1,6 @@
 <div class="container-sm">
     <a routerLink="/" class="btn voltar"> Voltar Para Conversão </a>
     <div class="listCurrency">
-        <h2>
-            {{number | async}}
-        </h2>
-
         <app-card *ngFor="let item of constant" [data]="item"></app-card>
     </div>
 </div>

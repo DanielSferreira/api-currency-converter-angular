@@ -1,36 +1,29 @@
 .navbar-light {
-    background: rgb(200,117,212);
-    background: linear-gradient(153deg, rgba(200,117,212,1) 0%, rgba(255,187,41,1) 100%);
+  background: rgb(200, 117, 212);
+  background: linear-gradient(153deg, rgba(200, 117, 212, 1) 0%, rgba(255, 187, 41, 1) 100%);
 }
 
-.navbar-light a {
-    color: white;
-}
-.navbar-light a h3{
-    font-weight: 700;
-    padding-bottom: 15px;
-    padding-top: 25px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.navbar-light a h3 {
+  font-weight: 700;
+  color: white;
+  padding-bottom: 15px;
+  padding-top: 25px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .primary {
-
-    background: rgb(200,117,212);
-    background: linear-gradient(153deg, rgba(200,117,212,1) 0%, rgba(255,187,41,1) 100%);
-    font-weight: 700;
-    color: white;
-    width: 100%;
-    border: none;
+  background: rgb(200, 117, 212);
+  background: linear-gradient(153deg, rgba(200, 117, 212, 1) 0%, rgba(255, 187, 41, 1) 100%);
+  font-weight: 700;
+  color: white;
+  width: 100%;
+  border: none;
 }
 
 .form {
-    background-color: rgb(255, 253, 253);
-    margin-top: 15px;
-    padding: 15px;
+  background-color: rgb(255, 253, 253);
+  margin-top: 15px;
+  padding: 15px;
 }
-.valor {
-    display: flex;
-    align-items: center;
-    justify-content: center;    
-    padding: 15px;
-}
+
+

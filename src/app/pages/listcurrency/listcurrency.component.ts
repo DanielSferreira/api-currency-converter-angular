@@ -10,16 +10,15 @@ import { CurrencyApiService } from 'src/app/services/currency-api.service';
 })
 export class ListcurrencyComponent implements OnInit {
 
-  constructor(
-    private currency_api_svc: CurrencyApiService,
-    private store: Store<{ stater: string }>) { }
-
   public constant: CurrencyProperties[];
-  number;
   
-  ngOnInit(): void {
-    this.number = this.store.select('stater')
+  ngOnInit(): void 
+  {
     this.currency_api_svc.listCurrency().subscribe(a => this.constant = a);
   }
 
+  constructor(
+    private currency_api_svc: CurrencyApiService,
+    private store: Store<{ stater: string }>
+  ) { }
 }

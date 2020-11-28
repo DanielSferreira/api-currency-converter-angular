@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { CurrencyProperties } from 'src/app/interfaces/currency';
 import { storage } from 'src/app/interfaces/storeStates';
-import * as fromSelectors from './../../../states/currency.selectors';
+import * as fromSelectors from './../../../../states/currency.selectors';
 
 @Component({
-  selector: 'app-currency',
-  templateUrl: './currency.component.html',
-  styleUrls: ['./currency.component.css']
+  selector: 'app-label',
+  templateUrl: './label.component.html',
+  styleUrls: ['./label.component.css']
 })
-export class CurrencyComponent implements OnInit {
+export class LabelComponent implements OnInit {
 
   entity$: Observable<CurrencyProperties>;
   public entity:CurrencyProperties
@@ -19,14 +18,11 @@ export class CurrencyComponent implements OnInit {
   ngOnInit(): void 
   {
     this.entity$ = this.store.pipe(select(fromSelectors.getEntity));
-    this.entity$.subscribe(e=> this.entity = e);
-    
+    this.entity$.subscribe(e=> this.entity = e)
   }
-  form = new FormGroup({
-    fromConvert: new FormControl(1),
-    toConvert: new FormControl(0),
-  });
+
   constructor(
     private store: Store<storage>
   ) {}
+
 }

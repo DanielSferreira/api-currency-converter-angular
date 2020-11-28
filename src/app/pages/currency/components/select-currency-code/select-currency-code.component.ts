@@ -1,15 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { CurrencyProperties } from 'src/app/interfaces/currency';
 import { storage } from 'src/app/interfaces/storeStates';
 import { CurrencyApiService } from 'src/app/services/currency-api.service';
 import { CodeMoney } from 'src/app/states/currency.actions';
 import * as fromCurrency from './../../../../states/currency.selectors';
-
-interface StatesModel {
-  code:string;
-  states?:{}
-}
 
 @Component({
   selector: 'app-select-currency-code',
@@ -18,19 +14,20 @@ interface StatesModel {
 })
 export class SelectCurrencyCodeComponent implements OnInit {
 
-  code$: Observable<StatesModel>;
-  listCodes: string[];
-
-  ngOnInit(): void {
-    this.currency_api_svc.listCurrencyCode().subscribe(a => this.listCodes = a);
-    this.code$ = this.store.pipe(select(fromCurrency.getCode));
+  public listCodes: string[];
+  public entity$: Observable<CurrencyProperties>
+  public code: string;
+  
+  changeCode(e)
+  {
+    this.store.dispatch(CodeMoney({ code: e }));
+    this.entity$.subscribe(e => this.code = e.code);
   }
 
-  codeView = "";
-  changeCode(e) {
-    this.store.dispatch(CodeMoney({ code: e }));
-    this.code$.subscribe(e=>{console.log(e); this.codeView = e.code})
-    
+  ngOnInit(): void 
+  {
+    this.currency_api_svc.listCurrencyCode().subscribe(a => this.listCodes = a);
+    this.entity$ = this.store.pipe(select(fromCurrency.getEntity));
   }
 
   constructor(

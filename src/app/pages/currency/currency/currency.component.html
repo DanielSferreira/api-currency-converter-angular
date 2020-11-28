@@ -1,39 +1,31 @@
 <nav class="navbar navbar-light ">
-
-  <a class="navbar-brand" href="#">
     <h3>Conversor de Real</h3>
-  </a>
 </nav>
-
 <div class="container form">
-  <form>
+  <form [formGroup]="form">>
     <div class="row">
       <div class="col-sm">
         <div class="row">
-         <app-select-currency-code></app-select-currency-code>
-          <div class="col-sm valor">
-            <span>
-              1 tanto vale 2 #select2
-            </span>
-          </div>
+          <app-select-currency-code></app-select-currency-code>
+          <app-label></app-label>
         </div>
       </div>
       <div class="col-sm ">
         <div class="form-group">
-          <label for="exampleInputEmail1">Digite um Valor para converter</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" value="1" aria-describedby="emailHelp">
+          <label for="exampleInputEmail1"> Digite o valor em real</label>
+          <input type="number" class="form-control" formControlName="fromConvert" value="1" >
+          <input type="checkbox" name="invert" id="invert"><label for="invert"> inverter</label>
         </div>
       </div>
     </div>
-
     <div class="row">
       <div class="col-sm">
         <div class="form-group">
           <label for="exampleInputEmail1">Tanto dinheiro vale tantos reais</label>
-          <input type="email" class="form-control" disabled id="exampleInputEmail1" aria-describedby="emailHelp">
+        <input type="number" class="form-control" disabled id="exampleInputEmail1" formControlName="toConvert">
         </div>
       </div>
     </div>
-    <a routerLink="/listar"  class="btn primary">Ver Referencia de Moedas!</a>
+    <a routerLink="/listar" class="btn primary">Ver Referencia de Moedas!</a>
   </form>
 </div>
