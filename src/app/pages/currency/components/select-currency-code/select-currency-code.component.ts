@@ -28,6 +28,7 @@ export class SelectCurrencyCodeComponent implements OnInit {
   {
     this.currency_api_svc.listCurrencyCode().subscribe(a => this.listCodes = a);
     this.entity$ = this.store.pipe(select(fromCurrency.getEntity));
+    this.changeCode("USD");
   }
 
   constructor(

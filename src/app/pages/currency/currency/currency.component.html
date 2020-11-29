@@ -1,28 +1,24 @@
 <nav class="navbar navbar-light ">
-    <h3>Conversor de Real</h3>
+  <h3>Conversor de Real</h3>
 </nav>
 <div class="container form">
-  <form [formGroup]="form">>
+  <form [formGroup]="form">
+    <div class="row">
+      <app-select-currency-code class="col-sm"></app-select-currency-code>
+      <app-label class="col-sm"></app-label>
+    </div>
+
     <div class="row">
       <div class="col-sm">
-        <div class="row">
-          <app-select-currency-code></app-select-currency-code>
-          <app-label></app-label>
+        <div class="form-group">
+          <label> Real</label>
+          <input type="number" class="form-control" formControlName="fromConvert" value="1" (keyup)="changeBr()">
         </div>
       </div>
       <div class="col-sm ">
         <div class="form-group">
-          <label for="exampleInputEmail1"> Digite o valor em real</label>
-          <input type="number" class="form-control" formControlName="fromConvert" value="1" >
-          <input type="checkbox" name="invert" id="invert"><label for="invert"> inverter</label>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm">
-        <div class="form-group">
-          <label for="exampleInputEmail1">Tanto dinheiro vale tantos reais</label>
-        <input type="number" class="form-control" disabled id="exampleInputEmail1" formControlName="toConvert">
+          <label for="exampleInputEmail1">{{entity.name}}</label>
+          <input type="number" class="form-control" formControlName="toConvert" (keyup)="changeFrom()">
         </div>
       </div>
     </div>

@@ -3,7 +3,7 @@
   background: linear-gradient(153deg, rgba(200, 117, 212, 1) 0%, rgba(255, 187, 41, 1) 100%);
 }
 
-.navbar-light a h3 {
+.navbar-light h3 {
   font-weight: 700;
   color: white;
   padding-bottom: 15px;
