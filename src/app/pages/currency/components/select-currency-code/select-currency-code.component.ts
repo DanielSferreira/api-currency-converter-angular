@@ -18,10 +18,10 @@ export class SelectCurrencyCodeComponent implements OnInit {
   public entity$: Observable<CurrencyProperties>
   public code: string;
   
-  changeCode(e)
+  changeCode(str)
   {
-    this.store.dispatch(CodeMoney({ code: e }));
-    this.entity$.subscribe(e => this.code = e.code);
+    this.store.dispatch(CodeMoney({ code: str }));
+    this.entity$.subscribe(item => this.code = item.code);
   }
 
   ngOnInit(): void 

@@ -15,44 +15,32 @@ export class CurrencyComponent implements OnInit {
 
   private entity$: Observable<CurrencyProperties>;
   public entity: CurrencyProperties;
+  
   public form = new FormGroup({
     fromConvert: new FormControl(1),
-    toConvert: new FormControl({value:0}),
+    toConvert: new FormControl({ value: 0 }),
   });
 
-  ngOnInit(): void 
+  ngOnInit()
   {
     this.entity$ = this.store.pipe(select(fromSelectors.getEntity));
-    this.entity$.subscribe(e=> this.entity = e);  
+    this.entity$.subscribe(e => this.entity = e);
   }
 
-  changeBr()
-  {    
-    let calcFrom = this.form.controls["fromConvert"].value
-    let toBrl = Number(this.entity.ask) 
-    
-    let result = 1 >= toBrl ? 
-      calcFrom * toBrl
-    : 
-      calcFrom / toBrl 
-    
-    this.form.controls["toConvert"].setValue(result.toFixed(2))
-  }
+  convert(inputName:string)
+  {
+    let base = this.form.controls[inputName].value;
+    let toBrl = Number(this.entity.ask);
 
-  changeFrom()
-  {    
-    let calcFrom = this.form.controls["toConvert"].value
-    let toBrl = Number(this.entity.ask) * calcFrom
-    
-    let result = 1 >= calcFrom ? 
-      toBrl / calcFrom 
-    : 
-      calcFrom * toBrl
-    
-    this.form.controls["fromConvert"].setValue(result.toFixed(2))
+    let result = 1 >= toBrl ?
+      Math.abs(1 / toBrl) * base
+      :
+      base / toBrl;
+
+    this.form.controls["toConvert"].setValue(result.toFixed(2));
   }
 
   constructor(
     private store: Store<storage>
-  ) {}
+  ) { }
 }

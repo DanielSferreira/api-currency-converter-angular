@@ -11,14 +11,14 @@
     <div class="row">
       <div class="col-sm">
         <div class="form-group">
-          <label> Real</label>
-          <input type="number" class="form-control" formControlName="fromConvert" value="1" (keyup)="changeBr()">
+          <label>Real</label>
+          <input type="number" class="form-control" formControlName="fromConvert" (keyup)="convert('fromConvert')">
         </div>
       </div>
       <div class="col-sm ">
         <div class="form-group">
           <label for="exampleInputEmail1">{{entity.name}}</label>
-          <input type="number" class="form-control" formControlName="toConvert" (keyup)="changeFrom()">
+          <input type="number" class="form-control" formControlName="toConvert" (keyup)="convert('toConvert')">
         </div>
       </div>
     </div>
